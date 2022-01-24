@@ -112,7 +112,7 @@ void Game::render()
 {
 	m_window.clear(sf::Color::White);
 	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	m_window.draw(m_midgetPlaneSprite);
 	m_window.display();
 }
 
@@ -141,11 +141,17 @@ void Game::setupFontAndText()
 /// </summary>
 void Game::setupSprite()
 {
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
+
+	sf::Vector2f midgetPlaneStart{ 100.0f, 100.0f };
+	sf::IntRect midgetPlaneRect{ 362,115,87,69 };
+
+	if (!m_midgetPlaneText.loadFromFile("ASSETS\\IMAGES\\planes.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem loading planes" << std::endl;
 	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
+	m_midgetPlaneSprite.setTexture(m_midgetPlaneText);
+	m_midgetPlaneSprite.setPosition(midgetPlaneStart);
+	m_midgetPlaneLocation = midgetPlaneStart;
+	m_midgetPlaneSprite.setOrigin(midgetPlaneRect.width / 2.0f, midgetPlaneRect.height / 2.0f);
 }

@@ -34,8 +34,13 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
-	sf::Texture m_logoTexture; // texture used for sfml logo
-	sf::Sprite m_logoSprite; // sprite used for sfml logo
+	sf::Texture m_midgetPlaneText; // texture used for plane
+	sf::Sprite m_midgetPlaneSprite; // sprite used for plane
+
+	sf::Vector2f m_midgetPlaneLocation; // location of small plane
+	sf::Vector2f m_largePlaneLocation; // location of big plane
+
+
 	bool m_exitGame; // control exiting game
 
 };
