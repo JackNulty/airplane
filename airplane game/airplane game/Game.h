@@ -34,8 +34,9 @@ private:
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
-	sf::Texture m_midgetPlaneText; // texture used for plane
+	sf::Texture m_planeText; // texture used for plane
 	sf::Sprite m_midgetPlaneSprite; // sprite used for plane
+	sf::Sprite m_largePlaneSprite; // sprite used for large plane
 
 	sf::Vector2f m_midgetPlaneLocation; // location of small plane
 	sf::Vector2f m_largePlaneLocation; // location of big plane

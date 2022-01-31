@@ -127,7 +127,7 @@ void Game::setupFontAndText()
 	}
 	m_welcomeMessage.setFont(m_ArialBlackfont);
 	m_welcomeMessage.setString("Plane Game");
-	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
+	m_welcomeMessage.setStyle(sf::Text::Italic | sf::Text::Bold);
 	m_welcomeMessage.setPosition(40.0f, 40.0f);
 	m_welcomeMessage.setCharacterSize(80U);
 	m_welcomeMessage.setOutlineColor(sf::Color::Red);
@@ -145,13 +145,23 @@ void Game::setupSprite()
 	sf::Vector2f midgetPlaneStart{ 100.0f, 100.0f };
 	sf::IntRect midgetPlaneRect{ 362,115,87,69 };
 
-	if (!m_midgetPlaneText.loadFromFile("ASSETS\\IMAGES\\planes.png"))
+	sf::Vector2f largePlaneStart{ 300.0f, 180.0f };
+	sf::IntRect largePlaneRect{ 3, 11, 104, 93 };
+
+	if (!m_planeText.loadFromFile("ASSETS\\IMAGES\\planes.png"))
 	{
 		// simple error message if previous call fails
 		std::cout << "problem loading planes" << std::endl;
 	}
-	m_midgetPlaneSprite.setTexture(m_midgetPlaneText);
+	m_midgetPlaneSprite.setTexture(m_planeText);
 	m_midgetPlaneSprite.setPosition(midgetPlaneStart);
 	m_midgetPlaneLocation = midgetPlaneStart;
+	m_midgetPlaneSprite.setTextureRect(midgetPlaneRect);
 	m_midgetPlaneSprite.setOrigin(midgetPlaneRect.width / 2.0f, midgetPlaneRect.height / 2.0f);
+
+	m_largePlaneSprite.setTexture(m_planeText);
+	m_largePlaneSprite.setPosition(largePlaneStart);
+	m_largePlaneLocation = largePlaneStart;
+	m_largePlaneSprite.setTextureRect(largePlaneRect);
+	m_largePlaneSprite.setOrigin(largePlaneRect.width / 2.0f, largePlaneRect.height / 2.0f);
 }
